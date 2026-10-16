@@ -1,0 +1,247 @@
+:root {
+  --bg: #ffffff;
+  --panel: #f6f6f6;
+  --line: #444444;
+  --text: #222222;
+  --muted: #777777;
+  --accent: #14a58a;
+  --accent-soft: #8fd5c6;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 24px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-size: 13px;
+}
+h1 { font-size: 20px; margin: 0 0 4px; }
+.sub { color: var(--muted); margin: 0 0 20px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 1000px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+
+/* ventana del navegador */
+.win {
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  background: var(--bg);
+  overflow: hidden;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 10px;
+  border-bottom: 2px solid var(--line);
+}
+.bar i {
+  width: 8px; height: 8px;
+  border: 1.5px solid var(--line);
+  border-radius: 50%;
+}
+.bar span {
+  flex: 1;
+  height: 12px;
+  margin-left: 8px;
+  border: 1.5px solid var(--line);
+  border-radius: 8px;
+}
+
+/* cabecera de la app */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 12px;
+  border-bottom: 1.5px solid var(--line);
+  font-size: 11px;
+}
+.logo { color: var(--accent); font-size: 10px; font-weight: bold; }
+.user { display: flex; align-items: center; gap: 8px; }
+.avatar {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--text);
+}
+
+.body { display: flex; flex: 1; }
+.menu {
+  width: 105px;
+  padding: 12px 10px;
+  background: var(--panel);
+  border-right: 1.5px solid var(--line);
+  font-size: 11px;
+}
+.menu b { display: block; margin-bottom: 10px; }
+.menu p { margin: 0 0 9px; display: flex; align-items: center; gap: 6px; }
+.menu p::before {
+  content: "";
+  width: 9px; height: 9px;
+  border: 1.5px solid var(--line);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.main { flex: 1; padding: 14px; min-width: 0; }
+.main h3 { margin: 0 0 10px; font-size: 12px; }
+
+/* sign up */
+.signup { flex: 1; display: flex; }
+.hero {
+  flex: 1;
+  background: var(--panel);
+  border-right: 1.5px solid var(--line);
+  padding: 20px 10px;
+  text-align: center;
+}
+.stack { height: 80px; position: relative; margin-bottom: 16px; }
+.stack div {
+  position: absolute;
+  top: 0;
+  width: 50px; height: 80px;
+  border: 1.5px solid var(--line);
+  background: var(--bg);
+}
+.stack .a { left: 8%; transform: scale(.8); }
+.stack .b { left: 26%; transform: scale(.9); }
+.stack .c { left: 40%; width: 60px; z-index: 1; }
+.stack .d { left: 62%; transform: scale(.9); }
+.stack .e { left: 78%; transform: scale(.8); }
+.stack div::before, .stack div::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top right, transparent calc(50% - 1px), var(--line) 50%, transparent calc(50% + 1px)),
+    linear-gradient(to top left, transparent calc(50% - 1px), var(--line) 50%, transparent calc(50% + 1px));
+}
+.hero strong { display: block; margin-bottom: 14px; font-size: 12px; }
+.mini { display: flex; justify-content: center; gap: 10px; font-size: 8px; color: var(--muted); }
+.form {
+  flex: 1;
+  padding: 20px 14px;
+  text-align: center;
+}
+.form h2 { color: var(--accent); font-size: 16px; margin: 30px 0 14px; font-weight: normal; }
+.input {
+  border: 1.5px solid var(--line);
+  border-radius: 3px;
+  padding: 5px 7px;
+  margin-bottom: 8px;
+  text-align: left;
+  font-size: 10px;
+}
+.social { font-size: 8px; color: var(--accent); margin: 12px 0 6px; }
+.dot {
+  display: inline-block;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin: 0 2px;
+}
+
+/* tarjetas de posts */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.card {
+  border: 1.5px solid var(--line);
+  border-radius: 4px;
+  background: var(--bg);
+  padding: 6px;
+}
+.pic {
+  height: 52px;
+  border: 1.5px solid var(--line);
+  border-radius: 3px;
+  background: var(--panel);
+  margin-bottom: 6px;
+  position: relative;
+}
+.pic::after {
+  content: "";
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 0; height: 0;
+  transform: translate(-50%, -50%);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 14px solid var(--text);
+}
+.pill {
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  padding: 1px 6px;
+  font-size: 7px;
+}
+
+/* tools con X */
+.tool .pic { height: 46px; }
+.tool .pic::after { display: none; }
+.tool .pic::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top right, transparent calc(50% - 1px), var(--line) 50%, transparent calc(50% + 1px)),
+    linear-gradient(to top left, transparent calc(50% - 1px), var(--line) 50%, transparent calc(50% + 1px));
+}
+.tool { text-align: center; font-size: 8px; }
+.tool small { display: block; color: var(--muted); font-size: 6px; }
+
+/* nuevo post */
+.field {
+  border: 1.5px solid var(--line);
+  border-radius: 8px;
+  padding: 3px 8px;
+  font-size: 8px;
+  margin-bottom: 8px;
+}
+.btn-sm {
+  display: inline-block;
+  border: 1.5px solid var(--line);
+  border-radius: 8px;
+  padding: 1px 8px;
+  font-size: 8px;
+  margin-bottom: 8px;
+}
+.editor {
+  border: 1.5px solid var(--line);
+  height: 105px;
+  padding: 6px;
+  font-size: 8px;
+  color: var(--muted);
+}
+.right { text-align: right; margin-top: 10px; }
+
+/* settings */
+.lines { display: flex; gap: 14px; }
+.opts { width: 70px; font-size: 8px; }
+.opts p { margin: 0 0 14px; display: flex; gap: 6px; align-items: center; }
+.opts p::before {
+  content: "";
+  width: 8px; height: 8px;
+  border: 1.5px solid var(--line);
+  border-radius: 2px;
+}
+.txt { flex: 1; font-size: 8px; color: var(--muted); }
+.txt b { display: block; color: var(--text); margin: 8px 0 4px; font-size: 9px; }
+
+/* analytics */
+.chart { width: 100%; height: auto; display: block; }
+.stats { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 8px; }
+.big { color: var(--accent); font-size: 20px; }
+.nums { display: flex; gap: 14px; font-size: 7px; color: var(--muted); }
+.nums b { display: block; color: var(--accent); font-size: 13px; }
